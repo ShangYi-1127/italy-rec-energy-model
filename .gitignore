@@ -1,0 +1,73 @@
+# ---------------------------------------------------------------------------
+# Step 1 — local cleanup / Streamlit Cloud (do not upload junk)
+# ---------------------------------------------------------------------------
+venv/
+.env
+__pycache__/
+.streamlit/config.toml
+.DS_Store
+Thumbs.db
+
+# ---------------------------------------------------------------------------
+# Python
+# ---------------------------------------------------------------------------
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments (common names)
+ENV/
+env/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Streamlit local / generated
+*.streamlit.app
+
+# Data backups (keep committed CSVs that the app needs)
+*.csv.bak
+data/schedules/*.bak
+*.xlsx
+*.xls
+
+# Jupyter
+.ipynb_checkpoints
+
+# Tests / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Logs
+*.log
+logs/
