@@ -1,92 +1,88 @@
-# 🌞 意大利建筑原型电能模拟演示系统
 
+# 🌞 Italian Prototype Electrical Energy Simulation Demonstration System for Architecture
 **Italian Building Archetype Single-Unit Electrical Energy Simulation Demo**
+---
+## 📋 Project Overview
+
+An **educational interactive tool** that allows users to select architectural parameters (region, era, type), and displays:
+- ⚡ **Building Energy Consumption Calculation** - Hourly energy breakdown and formula derivation
+- ☀️ **Photovoltaic Production Calculation** - Power generation model based on meteorological data
+- 📊 **Energy Supply and Demand Analysis** - Dynamic changes in supply and demand relationship
+
+## 🎯 Core Features
+
+✅ **Complete Formula Display** - Each calculation step has its corresponding mathematical formula
+✅ **Detailed Parameter Library** - 20 Italian regions × 8 architectural eras × 4 types = 640 combinations
+✅ **Interactive Interface** - Real-time visualization using Streamlit + Plotly
+✅ **Open Source Deployment** - Supports local running and Streamlit Cloud cloud deployment
 
 ---
 
-## 📋 项目概述
+## 🚀 QUICK START
 
-一个**教育性交互式工具**，通过选择建筑参数(地区、年代、类型)，展示：
+### Locally-run
 
-- ⚡ **建筑耗电量计算** - 逐时能耗分解与公式推导
-- ☀️ **光伏生产量计算** - 基于气象数据的发电模型
-- 📊 **电量匹配分析** - 供需关系动态变化
-
-## 🎯 核心特性
-
-✅ **完整公式展示** - 每个计算步骤都有对应的数学公式  
-✅ **细致参数库** - 20个意大利地区 × 8个建筑年代 × 4种类型 = 640种组合  
-✅ **交互式界面** - Streamlit + Plotly实时可视化  
-✅ **开源部署** - 支持本地运行和Streamlit Cloud云部署
-
----
-
-## 🚀 快速开始
-
-### 本地运行
-
-#### 1. 环境准备
+#### 1. Environmental Preparation
 
 ```bash
-# 克隆或进入项目目录
+# Clone or enter the project directory
 cd single\ building\ electrical\ energy\ sitimulation-demo
 
-# 创建虚拟环境
+# Create a virtual environment
 python -m venv venv
 
-# 激活虚拟环境
+# Activate the virtual environment
 # Windows:
 venv\Scripts\activate
 # Linux/Mac:
 source venv/bin/activate
 ```
 
-#### 2. 安装依赖
+#### 2. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-#### 3. 运行应用
+#### 3. Run the application
 
 ```bash
 streamlit run app.py
 ```
 
-#### 4. 访问应用
+#### 4. Accessing the Application
 
-浏览器打开：`http://localhost:8501`
+Open the browser at: `http://localhost:8501`
 
-### Streamlit Cloud 云部署
+### 5.Streamlit Cloud Cloud Deployment
 
-1. 将项目推送到GitHub
-2. 访问 https://share.streamlit.io
-3. 连接GitHub账号，选择仓库
-4. 设置入口文件为 `app.py`
-5. 点击"Deploy"
-
+1. Push the project to GitHub
+2. Visit https://share.streamlit.io
+3. Connect your GitHub account and select the repository
+4. Set the entry file as `app.py`
+5. Click "Deploy"
 ---
 
-## 📁 项目结构
+## 📁 Project Structure
 
 ```
 .
-├── app.py                           # Streamlit主应用
-├── requirements.txt                 # Python依赖
-├── README.md                        # 本文件
+├── app.py                           # Streamlit
+├── requirements.txt                 # Python dependencies
+├── README.md                        # this document
 │
-├── backend/                         # 后端模块
+├── backend/                         # Backend
 │   ├── __init__.py
-│   ├── load_model.py               # 建筑负荷计算模块
-│   ├── pv_model.py                 # PV发电计算模块
-│   ├── matching_algorithm.py       # 能源匹配算法
-│   ├── economic_model.py           # 经济评估模块(CACI/CACV/RID)
-│   └── archetype_data.py           # 建筑原型库
+│   ├── load_model.py               # PV power generation calculation module
+│   ├── pv_model.py                 # PV power generation calculation module
+│   ├── matching_algorithm.py       # Economic Assessment module
+│   ├── economic_model.py           # Economic Assessment module(CACI/CACV/RID)
+│   └── archetype_data.py           # Architectural Prototype library
 │
-├── data/                            # 数据目录
-│   ├── archetypes.csv              # 建筑参数矩阵(可扩展)
-│   ├── regions.csv                 # 意大利地区信息
-│   ├── schedules/                  # 使用时间表
+├── data/                            # Data Directory
+│   ├── archetypes.csv              # Building Parameter Matrix (scalable)
+│   ├── regions.csv                 # Information on the Italian region
+│   ├── schedules/                  # Time Schedule
 │   │   ├── schedule_residential_weekday.csv
 │   │   ├── schedule_residential_weekend.csv
 │   │   ├── schedule_office_weekday.csv
@@ -96,13 +92,13 @@ streamlit run app.py
 │   │   ├── schedule_educational_schoolday.csv
 │   │   └── schedule_educational_holiday.csv
 │   │
-│   └── weather/                    # 气象数据缓存(可选)
+│   └── weather/                    # Meteorological data cache (optional)
 │       ├── piemonte_2024.csv
 │       ├── lazio_2024.csv
 │       ├── sicilia_2024.csv
 │       └── ... (20个地区)
 │
-└── tests/                           # 单元测试(可选)
+└── tests/                           # Unit Test(optional)
     ├── test_load_model.py
     ├── test_pv_model.py
     └── test_matching.py
@@ -110,11 +106,11 @@ streamlit run app.py
 
 ---
 
-## 🔧 核心模块说明
+## 🔧 Building load calculation
 
-### 1. LoadModel (建筑负荷计算)
+### 1. LoadModel (Building load calculation)
 
-**公式**：
+**Formula**：
 
 ```
 E_light,t = P_light × A × S_light(t)
@@ -124,15 +120,14 @@ E_hvac,t = Q_demand / COP(T)
 E_total,t = E_light + E_appl + E_vent + E_hvac
 ```
 
-**关键参数**：
+  **Key Parameters**:
+- U value: Building heat transfer coefficient [W/(m²·K)]
+- P_light, P_appl: Power density [W/m²]
+- COP: System performance coefficient (varies with temperature)
 
-- U值：建筑传热系数 [W/(m²·K)]
-- P_light, P_appl：功率密度 [W/m²]
-- COP：系统性能系数(随温度变化)
+### 2. PVModel (Photovoltaic power generation)
 
-### 2. PVModel (光伏发电)
-
-**核心算法(Pvlib)**：
+**Core Algorithm(Pvlib)**：
 
 ```
 T_cell = T_amb + (NOCT - 20) × POA / 800
@@ -140,122 +135,130 @@ T_cell = T_amb + (NOCT - 20) × POA / 800
 P_pv = P_rated × η_temp × η_soiling × η_inverter × (POA / 1000)
 ```
 
-**特性**：
+  **Characteristics**:
+  
+- Temperature correction factor
+- Dust accumulation loss modeling
+- Inverter efficiency
 
-- 温度修正系数
-- 积尘损失建模
-- 逆变器效率
+### 3. MatchingAlgorithm
 
-### 3. MatchingAlgorithm (能源匹配)
 
-**核心指标**：
-
+**Core Metrics**: 
 ```
 E_diff,t = P_pv(t) - E_load(t)
-覆盖率 = min(P_pv, E_load).sum() / E_load.sum()
+Coverage = min(P_pv, E_load).sum() / E_load.sum() 
 ```
 
-### 4. EconomicModel (经济评估)
-
-**意大利REC补贴**：
-
-- **CACI**：共享电量补贴 ~80-120 €/MWh
-- **CACV**：网费返还 ~30 €/MWh
-- **RID**：电网出售 (市场价格)
+### 4. Economic Model (Economic Assessment)  
+**Italian REC Subsidy**:  
+- **CACI**: Shared electricity subsidy ~80–120 €/MWh  
+- **CACV**: Grid fee refund ~30 €/MWh  
+- **RID**: Grid sale (market price)
 
 ---
 
-## 📊 参数配置
+## 📊 Parameter Configuration
 
-### 地区(20个)
+### Region(20)
 
-| 北部     | 中部     | 南部+岛屿 |
+| North | Central | South + Islands |
 | -------- | -------- | --------- |
-| 皮埃蒙特 | 托斯卡纳 | 坎帕尼亚  |
-| 伦巴第   | 拉齐奥   | 普利亚    |
-| 威尼托   | 翁布里亚 | 西西里    |
-| ...      | ...      | 撒丁岛    |
+| Piedmont | Tuscany | Campania |
+| Lombardy | Lazio   | Puglia    |
+| Veneto   | Umbria  | Sicily    |
+| ...      | ...      | Sardinia   |
 
-### 建筑年代(8个)
+### Building Age(8个)
 
 ```
 <1919  →  1919-1945  →  1946-1960  →  1961-1970  →
 1971-1980  →  1981-1990  →  1991-2005  →  >2005
 ```
 
-U值范围：2.0 W/(m²·K) ... 0.12 W/(m²·K)
+U value range：2.0 W/(m²·K) ... 0.12 W/(m²·K)
 
-### 建筑类型(4种)
+### Building types (4)
 
-- **住宅**：双峰模式(晨间/夜间)
-- **办公**：单峰模式(工作时间)
-- **商业**：扩展营业时间
-- **教育**：课时表+季节性
-
----
-
-## 💡 使用示例
-
-### 场景1：理解建筑能效演变
-
-```
-1. 选择"北部" → "Piemonte"
-2. 比较 "<1919" vs ">2005" 的同类型建筑
-3. 观察U值差异(1.8 → 0.18)对能耗的影响
-   结果：新建筑年耗电量下降80%以上
-```
-
-### 场景2：评估光伏补偿潜力
-
-```
-1. 选择"南部" → "Sicilia"
-2. 固定建筑类型为"住宅"
-3. 逐步增加PV装机容量：5kW → 10kW → 20kW
-4. 在TAB3观察覆盖率变化
-   结果：南部夏季可达100%+，冬季仍需补充
-```
+- ** Residential ** : Bimodal (morning/night)
+- ** Office ** : Single-peak mode (working hours)
+- ** Business ** : Extended business hours
+- ** Education ** : Class schedule + Seasonality
 
 ---
 
-## 📈 关键输出指标
+## 💡 EXAMPLES
 
-### TAB 1 (能耗计算)
+### Scene 1: Understanding the evolution of building energy efficiency
 
-- ✅ 年总耗电量 [MWh]
-- ✅ 能耗分解占比 (照明/设备/HVAC/通风)
-- ✅ 月度峰谷值 [kW]
-- ✅ 全年8760小时曲线
+` ` `
+Select "North" → "Piemonte"
+2. Compare the same type of buildings in "<1919" vs. ">2005"
+3. Observe the impact of the difference in U values (1.8 → 0.18) on energy consumption
+```
 
-### TAB 2 (生产量)
+### Scene 1: Understanding the evolution of building energy efficiency
 
-- ✅ 年总发电量 [MWh]
-- ✅ 利用小时数 [h]
-- ✅ 系统效率 [%]
-- ✅ 季节性分布
+` ` `
+Select "North" → "Piemonte"
+2. Compare the same type of buildings in "<1919" vs. ">2005"
+3. Observe the impact of the difference in U values (1.8 → 0.18) on energy consumption
 
-### TAB 3 (匹配分析)
+```
+Select "South" → "Sicilia"
+2. The fixed building type is "residential"
+3. Gradually increase the installed capacity of PV: 5kW → 10kW → 20kW
+4. Observe the coverage rate changes in TAB3
+Result: In the south, it can reach over 100% in summer, but supplementation is still needed in winter
+```
 
-- ✅ 年度覆盖率 [%]
-- ✅ 年缺电/余电量 [MWh]
-- ✅ 月度汇总表
-- ✅ 季节性分析
+---
+
+## 📈 Energy consumption calculation
+
+- ✅ annual total power consumption [MWh]
+- ✅ energy consumption breakdown ratio (lighting/equipment /HVAC/ ventilation)
+- ✅ monthly peak-valley value [kW]
+- ✅ annual 8,760 hour curve
+
+### TAB 1 Energy consumption calculation
+
+- ✅ annual total power consumption [MWh]
+- ✅ energy consumption breakdown ratio (lighting/equipment /HVAC/ ventilation)
+- ✅ monthly peak-valley value [kW]
+- ✅ annual 8,760 hour curve
+
+### TAB 2 Matching Analysis
+
+- ✅ annual coverage rate [%]
+- ✅ annual power shortage/surplus [MWh]
+- ✅ monthly summary table
+- ✅ seasonal analysis
+
+  
+### TAB 3 Matching Analysis
+
+- ✅ annual coverage rate [%]
+- ✅ annual power shortage/surplus [MWh]
+- ✅ monthly summary table
+- ✅ seasonal analysis
 
 ---
 
 ## 🔌 技术栈
 
-| 组件      | 版本  | 说明       |
-| --------- | ----- | ---------- |
-| Python    | 3.9+  | 编程语言   |
-| Streamlit | ≥1.30 | Web框架    |
-| Pandas    | ≥1.5  | 数据处理   |
-| Plotly    | ≥5.13 | 交互可视化 |
-| Pvlib     | ≥0.10 | PV计算库   |
-| NumPy     | ≥1.23 | 数值计算   |
+| Module     | Version  | 
+| ---------- | -------- | 
+| Python     | 3.9+     | 
+| Streamlit  | ≥1.30    | 
+| Pandas     | ≥1.5     | 
+| Plotly     | ≥5.13    | 
+| Pvlib      | ≥0.10    | 
+| NumPy      | ≥1.23    | 
 
 ---
 
-## 📝 主要函数API
+## 📝 Main API
 
 ### LoadModel
 
@@ -284,32 +287,31 @@ monthly_stats = matching.get_monthly_statistics()
 
 ---
 
-## 🤝 贡献指南
+## 🤝 Contribution Guide
 
-欢迎提交Issue或PR来改进本项目：
-
-- 🐛 bug报告
-- ✨ 新建筑原型
-- 🌍 新地区数据
-- 📚 文档优化
+Welcome to submit issues or PRS to improve this project
+- 🐛 bug report
+- ✨ new building prototype
+- 🌍 new regional data
+- 📚 document optimization
 
 ---
 
-## 📖 参考资源
+## 📖 Reference
 
-### 标准与规范
+### Standards and Specifications
 
-- **BS EN 16798-1:2019** - 建筑室内环境设计条件
-- **ISO 52016-1:2017** - 建筑能耗计算程序
-- **UNI/TS 11300-2:2019** - 意大利建筑能效标准
+- **BS EN 16798-1:2019** - Design conditions for architectural interior environment
+- **ISO 52016-1:2017** - Design conditions for architectural interior environment
+- **UNI/TS 11300-2:2019** - Italian building energy efficiency standards
 
-### 数据来源
+### Data Sources
 
-- **PVGIS** - 欧洲光伏地理信息系统
-- **DPR 412/93** - 意大利建筑分类标准
-- **DECRETO CACER** - 意大利能源社区激励框架
+- **PVGIS** - European Photovoltaic Geographic Information System
+- **DPR 412/93** - Italian building classification standards
+- **DECRETO CACER** - Italian building classification standards
 
-### Python库文档
+### Python Library Documentation
 
 - [Pvlib Documentation](https://pvlib-python.readthedocs.io/)
 - [Streamlit Docs](https://docs.streamlit.io/)
@@ -319,21 +321,20 @@ monthly_stats = matching.get_monthly_statistics()
 
 ## ⚖️ 许可证
 
-本项目采用 **Creative Commons Attribution 4.0 (CC-BY-4.0)** 许可
+This project is licensed under **Creative Commons Attribution 4.0 (CC-BY-4.0)** license
 
-欢迎学术引用与教学使用
-
----
-
-## 👤 联系方式
-
-- **作者**：[学生姓名]
-- **机构**：[学校/研究机构]
-- **邮件**：[contact@example.com]
-- **GitHub Issues**：[项目GitHub链接]
+Welcome for academic citation and teaching use
 
 ---
 
-**最后更新**：2026年5月14日  
+## 👤 Contact Information
+
+- **Author**：[Shang Yi]
+- **Institution**：[Politecnico di Torino]
+- **Email**：[s339753@studenti.polito.it]
+
+---
+
+**最后更新**：2026-05-14
 **项目版本**：v1.0.0  
-**维护状态**：✅ 持续更新
+**维护状态**：updating
