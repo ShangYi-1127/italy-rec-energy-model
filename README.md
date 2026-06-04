@@ -329,8 +329,8 @@ Welcome for academic citation and teaching use
 
 ## Contact Information
 
-- **Author**：[Shang Yi]
-- **Institution**：[Politecnico di Torino]
-- **Email**：[s339753@studenti.polito.it]
+- **Author**：Shang Yi
+- **Institution**：Politecnico di Torino
+- **Email**：s339753@studenti.polito.it
 
 
