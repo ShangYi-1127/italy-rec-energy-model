@@ -319,7 +319,7 @@ Welcome to submit issues or PRS to improve this project
 
 ---
 
-## ⚖️ 许可证
+## Licence
 
 This project is licensed under **Creative Commons Attribution 4.0 (CC-BY-4.0)** license
 
@@ -327,14 +327,10 @@ Welcome for academic citation and teaching use
 
 ---
 
-## 👤 Contact Information
+## Contact Information
 
 - **Author**：[Shang Yi]
 - **Institution**：[Politecnico di Torino]
 - **Email**：[s339753@studenti.polito.it]
 
----
 
-**最后更新**：2026-05-14
-**项目版本**：v1.0.0  
-**维护状态**：updating
